@@ -6,20 +6,20 @@
 
 - C++
 - A tool for the UI
-- CSV/SQL (to store data)
+- CSV/.txt (to store data)
+
+## Features for students
+
+- Add student school choices
+- Display all student school choices
+- Display all student results
+- Display result for a particular course
 
 ## Features for school
 
 - Add student results and school choices
-- Add schools, their courses offered and their cut-off marks
-- Search for schools to display all courses, cut-off marks etc
-- Place students in schools based on grades and
-  cut-off marks
-
-## Features for students
-
-- Add a student record
-- Display all student records
-- Search for a student using index/reference number
-- Modify a student record
-- Delete a student record
+- Display all courses and their cutoff marks
+- Get cutoff marks for a particular course
+- Add a student to a school
+- Remove a student from a school
+- Display all students enrolled in a particular school
