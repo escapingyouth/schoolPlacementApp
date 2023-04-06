@@ -41,24 +41,30 @@ void PlacementSystem::place_students()
         // get the courses offered by the school
         std::vector<Course *> courses_offered = school_choice->get_courses_offered();
 
+        // get course offered by student
+        Course *selected_course = student->get_selected_course();
+
         // iterate through the courses offered by the school
         for (const auto &course : courses_offered)
         {
-            // get the minimum grade required for the course
-            double min_grade = course->get_min_grade();
-
-            // get the average grade of the student
-            double average_grade = student->get_average_grade();
-
-            // check if the student meets the minimum grade requirement
-            if (average_grade >= min_grade)
+            if (selected_course == course)
             {
-                // place the student in the school
-                placed_students.push_back(std::make_tuple(*student, *school_choice, *course));
-            }
-            else
-            {
-                rejected_students.push_back(std::make_tuple(*student, *school_choice, *course));
+                // get the minimum grade required for the course
+                double min_grade = course->get_min_grade();
+
+                // get the average grade of the student
+                double average_grade = student->get_average_grade();
+
+                // check if the student meets the minimum grade requirement
+                if (average_grade >= min_grade)
+                {
+                    // place the student in the school
+                    placed_students.push_back(std::make_tuple(*student, *school_choice, *course));
+                }
+                else if (average_grade < min_grade)
+                {
+                    rejected_students.push_back(std::make_tuple(*student, *school_choice, *course));
+                }
             }
         }
     }
@@ -67,7 +73,7 @@ void PlacementSystem::place_students()
 void PlacementSystem::display_placement_results(std::string school_name)
 {
     std::cout << "=======================================" << std::endl;
-    std::cout << "\nHERE ARE THE LIST OF STUDENTS PLACED IN  " << school_name << "\n";
+    std::cout << "\nHere are the list of students placed in " << school_name << " :\n\n";
 
     for (auto &student : placed_students)
     {
@@ -79,7 +85,7 @@ void PlacementSystem::display_placement_results(std::string school_name)
             std::cout << student_name << ": " << student_school << ": " << student_course << "\n";
     }
 
-    std::cout << "\nHERE ARE THE LIST OF STUDENTS REJECTED BY " << school_name << "\n";
+    std::cout << "\nHere are the students rejected by " << school_name << " :\n\n";
 
     for (auto &student : rejected_students)
     {

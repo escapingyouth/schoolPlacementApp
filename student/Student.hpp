@@ -91,5 +91,5 @@ public:
     /*
      * This method displays the all student data
      */
-    void display_student_data() const;
+    void display_student_data();
 };

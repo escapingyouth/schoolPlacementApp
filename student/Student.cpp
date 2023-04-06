@@ -46,7 +46,7 @@ std::map<std::string, double> Student::get_student_grades() const
 double Student::get_average_grade() const
 {
     double total_grade = 0.0;
-    for (auto &student_grade : student_grades)
+    for (const auto &student_grade : student_grades)
     {
         total_grade += student_grade.second;
     };
@@ -54,29 +54,29 @@ double Student::get_average_grade() const
     return total_grade / student_grades.size();
 }
 
-void Student::display_student_data() const
+void Student::display_student_data()
 {
 
     std::string name = get_student_name();
-    std::cout << "Student Name: " << name << '\n';
+    std::cout << "Student Name: " << name << "\n\n";
 
     int id = get_student_id();
-    std::cout << "Student ID: " << id << '\n';
+    std::cout << "Student ID: " << id << "\n\n";
 
     std::cout << "Grades: \n";
     for (const auto &student_grade : student_grades)
     {
-        std::cout << "\t" << student_grade.first << "-" << student_grade.second << "\n";
+        std::cout << student_grade.first << " - " << student_grade.second << "\n";
     }
 
     double average_grade = get_average_grade();
-    std::cout << "Average Grade: " << average_grade << "\n";
+    std::cout << "\nAverage Grade: " << average_grade << "\n";
 
     School *school_choice = get_school_choice();
-    std::cout << "School picked: \n ";
-    std::cout << school_choice->get_school_name();
+    std::cout << "\nSchool picked: ";
+    std::cout << school_choice->get_school_name() << '\n';
 
     Course *selected_course = get_selected_course();
-    std::cout << "Course selected: \n";
+    std::cout << "\nCourse selected: ";
     std::cout << selected_course->get_course_name();
 }
