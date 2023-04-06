@@ -1,15 +1,16 @@
 #include "Course.hpp"
 
-Course::Course(std::string course_name_arg, double cut_off_mark_arg) : course_name{course_name_arg}, cut_off_mark{cut_off_mark_arg}
+Course::Course(std::string course_name_arg, double min_grade_arg)
+    : course_name{course_name_arg}, min_grade{min_grade_arg}
 {
 }
 
-std::string Course::get_course_name()
+std::string Course::get_course_name() const
 {
     return course_name;
 }
 
-double Course::get_cut_off_mark()
+double Course::get_min_grade() const
 {
-    return cut_off_mark;
+    return min_grade;
 }

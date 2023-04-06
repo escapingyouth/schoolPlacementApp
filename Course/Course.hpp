@@ -1,20 +1,36 @@
 #pragma once
+
 #include <string>
+
+/*
+ * A class model definition for a course
+
+ * attribute 'course_name' represents the name of a course
+ * attribute 'min_grade' represents the minimum grade that must be obtained in the course
+ */
 
 class Course
 {
 
 private:
     std::string course_name;
-    double cut_off_mark;
+    double min_grade;
 
 public:
-    // Course Constructor
-    Course(std::string course_name_arg, double cut_off_mark_arg);
+    // Course constructor
+    Course(std::string course_name_arg, double min_grade_arg);
 
-    // This method returns the name of a course
-    std::string get_course_name();
+    /*
+     * This method returns the name of a course
+     *
+     * @return The name of a course
+     */
+    std::string get_course_name() const;
 
-    // This method returns the cut-off mark of a course
-    double get_cut_off_mark();
+    /*
+     * This method returns the minimum grade that must be obtained
+     *
+     * @return The cut-off mark of a course
+     */
+    double get_min_grade() const;
 };
